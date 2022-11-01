@@ -36,17 +36,17 @@ function payWithPaystack(event) {
     ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
     // label: "Optional string that replaces customer email"
     onClose: function(){
-        window.location = "http://localhost/contact_system/index.php?transactional=call"
+        window.location = "https://paystackpaymt.herokuapp.com/index.php?transactional=call"
       alert('Transaction cancelled.');
     },
     callback: function(response){
       let message = 'Payment complete! Reference: ' + response.reference;
       alert(message);
-      window.location = "http://localhost/contact_system/verify.php?reference=" + response.reference;
+      window.location = "https://paystackpaymt.herokuapp.com//verify.php?reference=" + response.reference;
 
 
 	  $.ajax({
-    url: 'http://localhost/contact_system/verify?reference='+ response.reference,
+    url: 'https://paystackpaymt.herokuapp.com/verify?reference='+ response.reference,
     method: 'get',
     success: function (response) {
       // the transaction status is in response.data.status
